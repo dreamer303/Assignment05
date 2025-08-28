@@ -53,7 +53,7 @@ function callAlertButton(callID,nameID, numID){
     const getHistorySection = document.getElementById('history')
         const div = document.createElement('div')
         div.innerHTML = `
-        <div  class="flex justify-between items-center my-1.5 bg-[#f5fff6] lg:p-4">
+        <div id="call-history-div" class="flex justify-between items-center my-1.5 bg-[#f5fff6] lg:p-4">
                 <div >
                     <p class="lg:text-2xl font-bold">${storedData.name}</p>
                     <p class="lg:text-lg text-gray-600">${storedData.number}</p>
@@ -77,5 +77,47 @@ callAlertButton('call-btn-7','eh','eh-num');
 callAlertButton('call-btn-8','bh','bh-num');
 callAlertButton('call-btn-9','rs','rs-num');
 
+
+//  copy button + showing alert + coping the text 
+
+function copyTextAlert(copyBtnID, numberID) {
+
+    document.getElementById(copyBtnID).addEventListener('click', function () {
+        // copy count
+        const defaultCopyValue = document.getElementById('copyNum')
+        const copyValue = parseInt(defaultCopyValue.innerText)
+        const newCopyValue = copyValue + 1;
+        defaultCopyValue.innerText = newCopyValue;
+
+        // copy the text
+        const copyButton = document.getElementById(copyBtnID)
+        const getNum = document.getElementById(numberID).textContent
+        navigator.clipboard.writeText(getNum)
+            .then(function () {
+                alert('Copied ' + getNum);
+
+                copyButton.textContent = 'Copied!';
+                copyButton.classList.add('copied');
+                setTimeout(function () {
+                    copyButton.textContent = 'Copy';
+                    copyButton.classList.remove('copied');
+                }, 2000);
+            })
+    })
+}
+
+
+copyTextAlert('copy-btn-1', 'ne-num');
+copyTextAlert('copy-btn-2', 'ph-num');
+copyTextAlert('copy-btn-3', 'fs-num');
+copyTextAlert('copy-btn-4', 'as-num');
+copyTextAlert('copy-btn-5', 'wc-num');
+copyTextAlert('copy-btn-6', 'ac-num');
+copyTextAlert('copy-btn-7', 'eh-num');
+copyTextAlert('copy-btn-8', 'bh-num');
+copyTextAlert('copy-btn-9', 'rs-num');
+
+
+// clear button functionality
 
 
