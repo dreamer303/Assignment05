@@ -39,4 +39,3 @@ Answer:
     If we call 'stopPropagation()' for an event this stops the event from moving up or down the DOM tree (bubbling or capturing). Means the functionality will not pass from child to parent.
     If we call 'preventDefault()' this stops the browser's default behavior for that event. For example, it can prevent a link from loading a new page or a form from submitting.
 
----
