@@ -26,3 +26,35 @@
 
 
 // copyTextAlert('copy-btn-1', 'ne-num');
+
+
+// document.getElementById('clear-btn')
+//             .addEventListener('click', function(){
+//                 document.getElementById('history').addEventListener('click', function(event){
+//                     console.log(event.target);
+//                 })
+
+//                 // event.target.parentNode.removeChild(event.target);
+//             })
+
+
+
+// Clear button functionality
+
+
+// Clear button functionality
+document.getElementById('clear-btn').addEventListener('click', function() {
+    // Get the history container
+    const historyContainer = document.getElementById('history');
+    
+    // Get all the call history div elements
+    const callHistoryDivs = historyContainer.querySelectorAll('#call-history-div');
+    
+    // Remove all call history divs using a for loop
+    for (let i = 0; i < callHistoryDivs.length; i++) {
+        callHistoryDivs[i].remove();
+    }
+    
+    // Also clear the callHistory array
+    callHistory.length = 0;
+});

@@ -95,13 +95,6 @@ function copyTextAlert(copyBtnID, numberID) {
         navigator.clipboard.writeText(getNum)
             .then(function () {
                 alert('Copied ' + getNum);
-
-                copyButton.textContent = 'Copied!';
-                copyButton.classList.add('copied');
-                setTimeout(function () {
-                    copyButton.textContent = 'Copy';
-                    copyButton.classList.remove('copied');
-                }, 2000);
             })
     })
 }
@@ -120,4 +113,13 @@ copyTextAlert('copy-btn-9', 'rs-num');
 
 // clear button functionality
 
+
+document.getElementById('clear-btn').addEventListener('click', function() {
+    const historyContainer = document.getElementById('history');
+    const callHistoryDivs = historyContainer.querySelectorAll('#call-history-div');
+    for (let i = 0; i < callHistoryDivs.length; i++) {
+        callHistoryDivs[i].remove();
+    }
+    callHistory.length = 0;
+});
 
